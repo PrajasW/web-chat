@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Chat</title>
+</head>
+<body>
+    <h1>Web-Chat</h1>
+    <h4>Messages</h4>
+    <!-- basic template for message box -->
+    <hr>
+    <hr>
+    {%for message in messages%}
+    <div>
+        <div class="sender">From: {{message.sender}}</div>
+        <div class="reciver">To: {{message.reciver}}</div>
+        <br>
+        <div class="message">{{message.message}}</div>
+        <br>
+        <div class="time">{{message.time}}  {{message.date}}</div>
+    </div>
+    <hr>
+    {%endfor%}
+    <h4>Write Here</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="text">Sender</label>
+        <input type="text" name="sender" id="sender">
+        <label for="text">Reciver</label>
+        <input type="text" name="reciver" id="reciver">
+        <label for="textarea">Message</label>
+        <input type="text" name="message" id="message">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
