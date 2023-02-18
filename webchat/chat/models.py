@@ -7,3 +7,6 @@ class Message(models.Model):
     message = models.CharField(max_length=1000)
     date = models.CharField(max_length=20)
     time = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.sender+" to "+self.reciver+"\t"+self.time+" "+self.date
